@@ -14,7 +14,7 @@ export class MovieView extends React.Component {
                     <img src={movie.Imageurl} alt={movie.Title}/>
                 </div>
                 <div className='movie-description'>
-                    <span className="label">Description</span>
+                    <span className="label">Description: </span>
                     <span className="content">{movie.Description}</span>
                 </div>
                 <button onClick={() => { onBackClick(null);}}>
