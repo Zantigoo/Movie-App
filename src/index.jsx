@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//Component Import
+import MainView from './components/main-view/main-view';
+
+
+//CSS Import
 import './index.scss';
 
 class FlixrApp extends React.Component {
     render() {
         return (
-            <div className="flixr">
-                <div>How's the Weather Up There?</div>
-            </div>
+            <MainView/>
         );
     };
 };
