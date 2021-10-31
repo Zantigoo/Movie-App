@@ -13,7 +13,7 @@ class MainView extends React.Component {
                 "_id":{"$oid":"616600c50d2f3ba55c8c867e"},
                 "Title":"Fight Club",
                 "Description":"An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
-                "Imageurl":"fightclub.png",
+                "Imageurl":"https://theposterdb.com/api/assets/64093",
                 "Featured":false,
                 "Genre":{"$oid":"6165f8bf0d2f3ba55c8c866e"}
                 },
@@ -22,7 +22,7 @@ class MainView extends React.Component {
                 "_id":{"$oid":"6166003f0d2f3ba55c8c867b"},
                 "Title":"Dune",
                 "Description":"The son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.",
-                "Imageurl":"dune.png",
+                "Imageurl":"https://theposterdb.com/api/assets/168154",
                 "Featured":false,
                 "Genre":{"$oid":"6165f8bf0d2f3ba55c8c866e"}
                 },
@@ -31,7 +31,7 @@ class MainView extends React.Component {
                 "_id":{"$oid":"616600740d2f3ba55c8c867c"},
                 "Title":"Sicario",
                 "Description":"An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico.",
-                "Imageurl":"sicario.png",
+                "Imageurl":"https://theposterdb.com/api/assets/5943",
                 "Featured":false,
                 "Genre":{"$oid":"6165f8bf0d2f3ba55c8c866e"}
                 },

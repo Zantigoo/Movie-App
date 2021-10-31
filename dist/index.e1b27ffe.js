@@ -22099,7 +22099,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     "Title": "Fight Club",
                     "Description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
-                    "Imageurl": "fightclub.png",
+                    "Imageurl": "https://theposterdb.com/api/assets/64093",
                     "Featured": false,
                     "Genre": {
                         "$oid": "6165f8bf0d2f3ba55c8c866e"
@@ -22111,7 +22111,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     "Title": "Dune",
                     "Description": "The son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.",
-                    "Imageurl": "dune.png",
+                    "Imageurl": "https://theposterdb.com/api/assets/168154",
                     "Featured": false,
                     "Genre": {
                         "$oid": "6165f8bf0d2f3ba55c8c866e"
@@ -22123,7 +22123,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     "Title": "Sicario",
                     "Description": "An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico.",
-                    "Imageurl": "sicario.png",
+                    "Imageurl": "https://theposterdb.com/api/assets/5943",
                     "Featured": false,
                     "Genre": {
                         "$oid": "6165f8bf0d2f3ba55c8c866e"
@@ -23093,7 +23093,7 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movie.ImagePath,
+                        src: movie.Imageurl,
                         alt: movie.Title,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",

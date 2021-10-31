@@ -11,7 +11,7 @@ export class MovieView extends React.Component {
                     <span className='content'>{movie.Title}</span>
                 </div>
                 <div className='movie-image'>
-                    <img src={movie.ImagePath} alt={movie.Title}/>
+                    <img src={movie.Imageurl} alt={movie.Title}/>
                 </div>
                 <div className='movie-description'>
                     <span className="label">Description</span>
