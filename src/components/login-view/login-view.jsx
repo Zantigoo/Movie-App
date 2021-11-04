@@ -13,6 +13,7 @@ export function LoginView(props) {
     };
 
     return (
+      <div>
         <form>
           <label>
             Username:
@@ -24,5 +25,6 @@ export function LoginView(props) {
           </label>
           <button type="submit" onClick={handleSubmit}>Submit</button>
         </form>
+      </div> 
       );
-    }
+}
