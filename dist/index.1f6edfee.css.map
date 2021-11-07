@@ -1,1 +1,0 @@
-{"mappings":"AAEA;EACI,OAHI;EAIJ","sources":["src/index.scss"],"sourcesContent":["$color: rgb(37, 135, 221);\r\n\r\n.flixr {\r\n    color: $color;\r\n    background-color: antiquewhite;\r\n}"],"names":[],"version":3,"file":"index.1f6edfee.css.map","sourceRoot":"/__parcel_source_root/"}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 import ReactDOM from 'react-dom';
 
 //Component Import
@@ -11,7 +12,9 @@ import './index.scss';
 class FlixrApp extends React.Component {
     render() {
         return (
-            <MainView/>
+            <Container>
+                <MainView/>
+            </Container>
         );
     };
 };

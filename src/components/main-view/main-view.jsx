@@ -1,12 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 
+//Bootstrap Import
+import { Grid, Row, Col} from 'react-bootstrap'
+
+//Views import
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-
+//CSS import
+import './main-view.scss';
 
 class MainView extends React.Component {
 
@@ -21,7 +26,7 @@ class MainView extends React.Component {
 
     //Grab movies from API, push them to array
     componentDidMount(){
-        axios.get('https://flixrapi.herokuapp.com/movies')
+        axios.get('https://flixir.herokuapp.com/movies')
         .then(response => {
             this.setState({
                 movies: response.data
@@ -52,16 +57,26 @@ class MainView extends React.Component {
 
         if (movies.length === 0) return <div className="main-view">Wanna catch a movie?</div>
         
-        return ( //Actually display the movie in movie var = null.
-            <div className="main-view">
-            {selectedMovie 
-                ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => {this.setSelectedMovie(newSelectedMovie);}}/>
-                : movies.map(movie => ( <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie)}}/>
-            ))
-            }
+        return ( //Actually display the movie
+        
+        <div className="main-view">
+        <Row className="main-view justify-content-md-center">
+        {selectedMovie
+        ? (
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+        )
+        : movies.map(movie => (
+            <Col md={6}>
+                <MovieCard key={movie._id.$oid} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            </Col>
+        ))}
+        </Row>
             </div>
         );
     }
 }
 
 export default MainView;
+
+
+  
