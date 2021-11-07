@@ -30,7 +30,7 @@ export class MovieView extends React.Component {
                         </div>
                             <hr/>
                         <div className='movie-image text-center'>
-                            <img src={movie.Imageurl} alt={movie.Title} width='360px' height='500px'/>
+                            <img src={movie.Imageurl} alt={movie.Title} width='50%' height='70%'/>
                         </div>
                             <hr/>
                         <div className='movie-description my-5'>

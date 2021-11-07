@@ -37569,8 +37569,8 @@ class MovieView extends _reactDefault.default.Component {
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.Imageurl,
                         alt: movie.Title,
-                        width: "360px",
-                        height: "500px",
+                        width: "50%",
+                        height: "70%",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 33
