@@ -1,6 +1,5 @@
-$color: rgb(37, 135, 221);
+$bg-color: #202124;
 
-.flixr {
-    color: $color;
-    background-color: antiquewhite;
+body {
+    background: $bg-color !important;
 }

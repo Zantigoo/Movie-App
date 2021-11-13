@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 //CSS import
 import './movie-view.scss';
@@ -37,6 +38,12 @@ export class MovieView extends React.Component {
                             <span className="label">Description: </span>
                             <span className="content">{movie.Description}</span>
                         </div>
+                        <Link to={`/directors/${movie.Director.Name}`}>
+                            <Button variant="link">Director</Button>
+                        </Link>
+                        <Link to={`/genres/${movie.Genre.Name}`}>
+                            <Button variant="link">Genre</Button>
+                        </Link>
                         <Button onClick={() => { onBackClick(null);}}>
                         Back</Button>
                     </div>
@@ -46,7 +53,7 @@ export class MovieView extends React.Component {
 
 }
 
-//<button onClick={() => { onBackClick(null);}}>Back</button>
+
 
 //Validating entries
 
@@ -55,10 +62,8 @@ MovieView.propTypes = {
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         Imageurl: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string,
-            Description: PropTypes.string
-        })
+        Director: PropTypes.string.isRequired,
+        Genre: PropTypes.string.isRequired
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
 };

@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button';
 //CSS import
 import './login-view.scss';
 import { Card } from "react-bootstrap";
+import axios from "axios";
 
 
 
@@ -19,12 +20,18 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(username, password);
-      // Send a request to the server for authentication 
-      // then call props.onLoggedIn(username) 
-      props.onLoggedIn(username);
+      axios.post('https://flixir.herokuapp.com/login', {
+        Username: username,
+        Password: password
+      })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log(e)
+      });
     };
-    
 
     return (
       <Card className='login-card'>
@@ -39,7 +46,7 @@ export function LoginView(props) {
 
           <Form.Group className="mb-4" controlId="formPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
           </Form.Group>
 
         </Form>
