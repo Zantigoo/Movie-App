@@ -12,6 +12,33 @@
 }
 
 
+.name {
+  color: azure;
+}
+
+.value {
+  color: azure;
+}
+
+.bio {
+  color: azure;
+}
+
+.birthyear {
+  color: azure;
+}
+
+.director-bio {
+  margin-bottom: 20px;
+}
+
+.director-name {
+  margin-bottom: 20px;
+}
+
+.director-view {
+  margin-top: 30px;
+}
 
 
 body {

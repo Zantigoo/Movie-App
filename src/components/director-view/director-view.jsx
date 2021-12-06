@@ -16,17 +16,17 @@ export class DirectorView extends React.Component {
               <div className="director-name">
                 <span className="name">Name: </span>
                 <span className="value">{director.Name}</span>
-              </div>
+              </div><br/>
 
               <div className="director-bio">
                 <span className="bio">Bio: </span>
                 <span className="value">{director.Bio}</span>
-              </div>
+              </div><br/>
 
               <div className="director-birth">
                 <span className="birthyear">BirthYear: </span>
-                <span className="value">{director.Bio}</span>
-              </div>
+                <span className="value">{director.Birthyear}</span>
+              </div><br/>
 
               <div className="director-button-div">
                 <Button className="director-button mt-3" variant="secondary" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -44,7 +44,7 @@ DirectorView.propTypes = {
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      BirthYear: PropTypes.number.isRequired
+      Birthyear: PropTypes.number.isRequired
     }).isRequired,
   })
 };

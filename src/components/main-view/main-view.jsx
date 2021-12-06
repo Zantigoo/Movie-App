@@ -40,6 +40,7 @@ class MainView extends React.Component {
         console.log(error);
       });
     }
+    
 
     componentDidMount() {
         let accessToken = localStorage.getItem('token');

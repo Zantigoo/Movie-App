@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 //CSS import
 import './movie-view.scss';
@@ -62,8 +63,12 @@ MovieView.propTypes = {
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         Imageurl: PropTypes.string.isRequired,
-        Director: PropTypes.string.isRequired,
-        Genre: PropTypes.string.isRequired
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired
+        }),
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired
+        })
     }).isRequired,
     onBackClick: PropTypes.func.isRequired
 };
