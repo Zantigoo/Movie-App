@@ -251,10 +251,6 @@ export class ProfileView extends React.Component {
               </Card>
             </Col>
         </Row>
-
-        <div>
-          <h3 className="favorite-Movies-title">Favorite Movies</h3>
-        </div>
                     
         
        

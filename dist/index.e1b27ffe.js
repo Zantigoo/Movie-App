@@ -40750,22 +40750,6 @@ class ProfileView extends _reactDefault.default.Component {
                             })
                         })
                     })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    __source: {
-                        fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 255
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
-                        className: "favorite-Movies-title",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 256
-                        },
-                        __self: this,
-                        children: "Favorite Movies"
-                    })
                 })
             ]
         }));
