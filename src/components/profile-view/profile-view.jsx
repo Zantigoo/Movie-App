@@ -43,7 +43,7 @@ export class ProfileView extends React.Component {
 
   getUser(token) {
     const username = localStorage.getItem('user');
-    axios.get(`https://immense-reef-38292.herokuapp.com/users/${username}`, {
+    axios.get(`https://flixir.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => {
@@ -60,14 +60,12 @@ export class ProfileView extends React.Component {
       })
   }
 
-  // Edit current User profile
-
   editUser(e) {
     e.preventDefault();
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
-    axios.put(`https://immense-reef-38292.herokuapp.com/users/${username}`,
+    axios.put(`https://flixir.herokuapp.com/users/${username}`,
       {
         Username: this.state.Username,
         Password: this.state.Password,
@@ -101,7 +99,7 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
-    axios.delete(`https://immense-reef-38292.herokuapp.com/users/${username}/movies/${movie._id}`, {
+    axios.delete(`https://flixir.herokuapp.com/users/${username}/movies/${movie._id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => {
@@ -118,7 +116,7 @@ export class ProfileView extends React.Component {
   onDeleteUser() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    axios.delete(`https://immense-reef-38292.herokuapp.com/users/${username}`, {
+    axios.delete(`https://flixir.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => {
@@ -155,9 +153,6 @@ export class ProfileView extends React.Component {
 
     const { onBackClick, movies, user } = this.props;
 
-    const FavoriteMovies = movies.filter(m => {
-      return this.state.FavoriteMovies.includes(m._id)
-    });
 
     return (
       <Container className="profile-view">
@@ -171,7 +166,7 @@ export class ProfileView extends React.Component {
 
         <Row>
           <Col >
-            <Card className="your-profile">           
+            <Card className="your-profile" bg="dark">           
              <Card.Body>
                 <Card.Title> 
                   <span className="card-title">YOUR PROFILE</span> 
@@ -204,7 +199,7 @@ export class ProfileView extends React.Component {
 
         <Row>
           <Col>
-              <Card className="update-profile">
+              <Card className="update-profile" bg="dark">
                   <Card.Body>
                     <Card.Title className="text-center"> <span className="update-title">UPDATE PROFILE</span> </Card.Title>
                     <Form className="formDisplay" onSubmit={(e) => this.editUser(e)}>
@@ -260,23 +255,7 @@ export class ProfileView extends React.Component {
         <div>
           <h3 className="favorite-Movies-title">Favorite Movies</h3>
         </div>
-        
-        <Row className="favoriteMovied-col"> 
-          { FavoriteMovies.map((movie) => (
-           
-            <Col   sm={6} md={4} lg={4} key={movie._id}>
-              <div className="favoriteMoviediv" >
-                <MovieCard movie={movie} />
-                <Button className="unfavoriteMovieButton" variant="danger" onClick={() => { this.onRemoveFavorite(movie._id) }} >Remove Favorite</Button>
-              </div>
-            </Col>
-            
-          ))
-        }
-         
-        </Row>
-              
-            
+                    
         
        
       </Container>

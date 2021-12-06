@@ -11,7 +11,21 @@
   color: white;
 }
 
+.username {
+  color: aliceblue;
+}
 
+.email {
+  color: aliceblue;
+}
+
+Form {
+  color: aliceblue;
+}
+
+.card-title {
+  color: aliceblue;
+}
 .name {
   color: azure;
 }
@@ -39,7 +53,29 @@
 .director-view {
   margin-top: 30px;
 }
+.name {
+  color: azure;
+}
 
+.value {
+  color: azure;
+}
+
+.bio {
+  color: azure;
+}
+
+.genre-bio {
+  margin-bottom: 20px;
+}
+
+.genre-name {
+  margin-bottom: 20px;
+}
+
+.genre-view {
+  margin-top: 30px;
+}
 
 body {
   background: #202124 !important;
