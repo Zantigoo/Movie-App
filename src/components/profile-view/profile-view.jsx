@@ -11,7 +11,7 @@ import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-export class ProfileView extends React.Component {
+export class ProfileView extends React.Component ({user, setUser, movies, onLoggedOut}){
 
   constructor() {
     super();

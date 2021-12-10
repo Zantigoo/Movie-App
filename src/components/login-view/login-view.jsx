@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 //Bootstrap import
 
@@ -54,7 +55,11 @@ export function LoginView(props) {
             Login
           </Button>
         </Card.Body>
+        <Link to={`/register`}>
+        <Button variant="outline-warning">
         Register
+        </Button>
+        </Link>
       </Card>
       );
 };
