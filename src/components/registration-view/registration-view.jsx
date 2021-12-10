@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, {useState} from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, FloatingLabel } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 //CSS import
 import './registration-view.scss';
 
-export function RegistrationView(props) {
+export function RegistrationView() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
     const [error, setError] = useState('');
@@ -38,37 +40,32 @@ export function RegistrationView(props) {
     };
 
     return (
-        <div>
-        <h2 className='text-center mt-5'>Sign Up</h2>
-        <Form className='mt-3' onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="5 character minimum"
-                value={username} onChange={e => setUsername(e.target.value)} required/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" 
-                value={email} onChange={e => setEmail(e.target.value)} required/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Case-Sensitive"
-                value={password} onChange={e => setPassword(e.target.value)} required/>
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBirthday">
-                <Form.Label>Birthday</Form.Label>
-                <Form.Control type="date" 
-                value={birthday} onChange={e => setBirthday(e.target.value)} required/>
-            </Form.Group>
-
-            {error && <h5 style={{ color: "red", marginBottom: "40px" }}>{error}</h5>}
-
-            <Button variant="primary" type="submit">
-            Submit
-            </Button>
-        </Form>
+        <div className="mt-5 d-flex justify-content-center">
+            <Form className="registration-view" onSubmit={handleSubmit} style={{ textAlign: "center" }}>
+                <h1>Register</h1>
+                <FloatingLabel controlId="formUsername" label="Username*" className="mb-3 mt-4">
+                    <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="username" required />
+                </FloatingLabel>
+                <FloatingLabel controlId="formPassword" label="Password*" className="mb-3">
+                    <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password" required />
+                </FloatingLabel>
+                <FloatingLabel controlId="formConfirmPassword" label="Confirm Password*" className="mb-3">
+                    <Form.Control type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="confirmPassword" required />
+                </FloatingLabel>
+                <FloatingLabel controlId="formEmail" label="Email*" className="mb-3">
+                    <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="email" required />
+                </FloatingLabel>
+                <FloatingLabel controlId="formBirthday" label="Birthday" className="mb-3">
+                    <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="birthday" />
+                </FloatingLabel>
+                {error && <h5 style={{ color: "red", marginBottom: "40px" }}>{error}</h5>}
+                <div className="d-grid gap-2">
+                    <Button size="lg" variant="outline-warning" type="submit">Submit</Button>
+                </div>
+                <Link to={`/`}>
+                    <Button size="lg" variant="outline-success" >Login</Button>
+                </Link>
+            </Form>
         </div>
-
-    );
+    )
 }
