@@ -77,9 +77,6 @@ export function RegistrationView() {
             {error && <h5 style={{ color: "red", marginBottom: "40px" }}>{error}</h5>}
             <div className="d-grid gap-2">
                     <Button size="lg" variant="outline-warning" type="submit">Submit</Button>
-                    <Link to={`/`}>
-                    <Button size="lg" variant="outline-success" >Login</Button>
-                </Link>
                 </div>
         </Form>
         </div>

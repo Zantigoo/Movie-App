@@ -40165,44 +40165,24 @@ function RegistrationView() {
                         __self: this,
                         children: error
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
                         className: "d-grid gap-2",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
                             lineNumber: 78
                         },
                         __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                size: "lg",
-                                variant: "outline-warning",
-                                type: "submit",
-                                __source: {
-                                    fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 79
-                                },
-                                __self: this,
-                                children: "Submit"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: `/`,
-                                __source: {
-                                    fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 80
-                                },
-                                __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                    size: "lg",
-                                    variant: "outline-success",
-                                    __source: {
-                                        fileName: "src/components/registration-view/registration-view.jsx",
-                                        lineNumber: 81
-                                    },
-                                    __self: this,
-                                    children: "Login"
-                                })
-                            })
-                        ]
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            size: "lg",
+                            variant: "outline-warning",
+                            type: "submit",
+                            __source: {
+                                fileName: "src/components/registration-view/registration-view.jsx",
+                                lineNumber: 79
+                            },
+                            __self: this,
+                            children: "Submit"
+                        })
                     })
                 ]
             })
