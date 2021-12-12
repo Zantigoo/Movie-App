@@ -8,9 +8,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 export class MovieCard extends React.Component {
+
     render() {
         const { movie } = this.props;
-        
         return (
 
         <Card className="bg-dark text-white">

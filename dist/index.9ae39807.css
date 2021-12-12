@@ -1,38 +1,13 @@
-.app-container {
-  display: grid;
-  justify-content: center;
-  padding-bottom: 500px;
+.nav-link {
+  color: aliceblue;
 }
 
-.form-title {
-  color: black;
-  text-align: center;
+.navbar-brand {
+  color: aliceblue;
 }
-
-form {
-  margin-top: 50%;
-  background-color: aliceblue;
-  padding: 20px;
-}
-
-.form-label {
-  margin-top: 20px;
-  height: 25px;
-  color: black;
-}
-
-.form-control {
-  width: 400px !important;
-}
-
-.btn {
-  padding-top: 10px;
-  margin-top: 30px;
-}
-
-.buttons-login {
-  display: flex;
-  justify-content: space-evenly;
+.login-card {
+  padding: 10px;
+  margin: 25vh 16vw;
 }
 .content {
   color: white;
@@ -112,11 +87,4 @@ Form {
 body {
   background: #202124 !important;
 }
-.nav-link {
-  color: aliceblue;
-}
-
-.navbar-brand {
-  color: aliceblue;
-}
-/*# sourceMappingURL=index.c1843862.css.map */
+/*# sourceMappingURL=index.9ae39807.css.map */

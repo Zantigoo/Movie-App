@@ -10,17 +10,25 @@ import { Col, Row, Button } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
 
-    keypressCallback(event){
-        console.log(event.key);
+    constructor(props) {
+        super(props);
     }
 
-    componentDidMount(){
-        document.addEventListener('keypress', this.keypressCallback);
-    }
+    addFavoriteMovie() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
 
-    componentWillUnmount(){
-        document.removeEventListener('keypress', this.keypressCallback);
-    }
+    axios.post(`https://flixir.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {}, {
+        headers: { Authorization: `Bearer ${token}` },
+        method: 'POST'
+    })
+        .then(response => {
+            alert(`Added to Favorites`)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
 
     render() {
         const { movie, onBackClick } = this.props;
@@ -39,14 +47,19 @@ export class MovieView extends React.Component {
                             <span className="label">Description: </span>
                             <span className="content">{movie.Description}</span>
                         </div>
-                        <Link to={`/directors/${movie.Director.Name}`}>
-                            <Button variant="link">Director</Button>
-                        </Link>
-                        <Link to={`/genres/${movie.Genre.Name}`}>
-                            <Button variant="link">Genre</Button>
-                        </Link>
-                        <Button onClick={() => { onBackClick(null);}}>
+                        <div className='movie-director my-5'>
+                            <span className="label">Director : </span>
+                            <Link to={`/directors/${movie.Director.Name}`} className="content">{movie.Director.Name}</Link>
+                        </div>
+                        <div className='movie-genre my-5'>
+                            <span className="label">Genre : </span>
+                            <Link to={`/genres/${movie.Genre.Name}`} className="content">{movie.Genre.Name}</Link>
+                        </div>
+ 
+                        <Button variant="outline-warning" onClick={() => { onBackClick(null);}}>
                         Back</Button>
+
+                        <Button variant="outline-primary" className="btn-outline-primary mx-5" value={movie._id} onClick={(e) => this.addFavoriteMovie(e, movie)}>Add to Favorites</Button>
                     </div>
             );
     }

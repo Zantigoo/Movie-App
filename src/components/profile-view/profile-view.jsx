@@ -8,7 +8,6 @@ import { MovieCard } from '../movie-card/movie-card';
 
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
 
 
 export class ProfileView extends React.Component {
@@ -65,31 +64,33 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
 
     axios.put(`https://flixir.herokuapp.com/users/${username}`,
-      {
-        Username: this.state.Username,
-        Password: this.state.Password,
-        Email: this.state.Email,
-        Birthday: this.state.Birthday
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday
-        });
-        localStorage.setItem('user', this.state.Username);
-        const data = response.data;
-        console.log(data);
-        console.log(this.state.Username);
-        alert("Profile updated.");
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+    {
+      Name: this.state.Name,
+      Username: this.state.Username,
+      Password: this.state.Password,
+      Email: this.state.Email,
+      Birthday: this.state.Birthday
+    },
+    { headers: { Authorization: `Bearer ${token}` }
+    })
+    .then((response) => {
+      this.setState({
+        Name: response.data.Name,
+        Username: response.data.Username,
+        Password: response.data.Password,
+        Email: response.data.Email,
+        Birthday: response.data.Birthday
+      });
+      localStorage.setItem('user', response.data.Username);
+      const data = response.data;
+      console.log(data);
+      console.log(this.state.Username);
+      alert('Profile updated');
+      window.location.reload();
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   }
 
   // Delete A Favorite Movie From Users Favorite 
@@ -114,10 +115,12 @@ export class ProfileView extends React.Component {
   // Delete A User
 
   onDeleteUser() {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    axios.delete(`https://flixir.herokuapp.com/users/${username}`, 
-    { headers: { Authorization: `Bearer ${token}` }
+    const answer = window.confirm("Are you sure you want to delete your account?");
+    if (answer) {
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      axios.delete(`https://flixir.herokuapp.com/users/${username}`, 
+        { headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => {
         console.log(response);
@@ -128,7 +131,7 @@ export class ProfileView extends React.Component {
       })
       .catch(function (error) {
         console.log(error);
-      })
+      })};
   }
 
 
@@ -150,9 +153,8 @@ export class ProfileView extends React.Component {
 
 
   render() {
-
-    const { onBackClick, movies, user } = this.props;
-
+    const { username, email, birthday, favorites  } = this.props
+    console.log(this.props)
 
     return(
       <Container className="UserView">
@@ -161,9 +163,7 @@ export class ProfileView extends React.Component {
           <div className="profileContent">
             <h1>MY PROFILE</h1>
           </div>
-            <h4>Name: {name}</h4>
             <h4>Username: {username}</h4>
-            <h4>Password: *******</h4>
             <h4>Email: {email}</h4>
             <h4>Birthday: {birthday}</h4>
           </Col>

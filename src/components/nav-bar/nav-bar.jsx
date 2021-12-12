@@ -1,35 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
 
-// Bootstrap
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import './nav-bar.scss'
 
 
-export function Topbar({ onLoggedOut }) {
-  return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Link to={`/`} style={{ textDecoration: 'none' }}>
-          <Navbar.Brand href="#home" className="d-flex align-items-center" style={{ fontFamily: 'Montserrat', fontWeight: 700, color: "rgb(149,149,149)" }}>
-            <img
-              src={img}
-              height="60"
-              width="60"
-              className="d-inline-block align-top"
-              alt="AvengersFlix logo"
-            />vengersFlix
-          </Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-center" style={{ width: "100%" }}>
-            <Nav.Link href="/profile" style={{ fontSize: "20px" }}>Profile</Nav.Link>
-          </Nav>
-          <Link to={'/'}>
-            <Button variant="danger" onClick={onLoggedOut} style={{ width: "90px" }}>Log out</Button>
-          </Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  )
+export class TopNav extends React.Component {
+    constructor() {
+      super();
+  
+      this.state = {};
+    }
+  
+    onLoggedOut = () => {
+      localStorage.clear();
+      window.open("/", "_self");
+    };
+
+    render() {
+        
+        const { user } = this.props
+        const movies = `/`;
+        const profile = `/users/${user}`;
+    
+        return (
+
+<Navbar bg="dark" expand="lg">
+  <Container className="navbar-menu">
+    <Navbar.Brand href={ movies }>Flixir</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="">Movies</Nav.Link>
+        <Nav.Link href="#link">Directors</Nav.Link>
+        <Nav.Link id="Account" href={profile}>My Account</Nav.Link>
+        <Nav.Link id="logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+        );
+    }
 }

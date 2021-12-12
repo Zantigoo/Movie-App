@@ -1,9 +1,9 @@
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import ReactDOM from 'react-dom';
 
 //Component Import
+import { TopNav } from './components/nav-bar/nav-bar';
 import MainView from './components/main-view/main-view';
 
 
@@ -13,13 +13,11 @@ import './index.scss';
 class FlixrApp extends React.Component {
     render() {
         return (
-            <div>
-            <Container>
-                <MainView/>
-            </Container>
-            </div>
+          <Container>
+            <MainView />
+          </Container>
         );
-    };
+      }
 };
 
 const container = document.getElementsByClassName('app-container')[0];
