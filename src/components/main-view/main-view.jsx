@@ -87,7 +87,7 @@ export default class MainView extends React.Component {
       const username = localStorage.getItem("user");
       const token = localStorage.getItem("token");
       axios
-        .get(`https://flixir.herokuapp.com/users/:Username`, {
+        .get(`https://flixir.herokuapp.com/users/${username}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {

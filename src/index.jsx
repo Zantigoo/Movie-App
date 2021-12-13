@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import ReactDOM from 'react-dom';
 
 //Component Import
-import { TopNav } from './components/nav-bar/nav-bar';
 import MainView from './components/main-view/main-view';
 
 

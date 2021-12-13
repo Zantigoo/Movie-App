@@ -1,0 +1,110 @@
+.app-container {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 500px;
+}
+
+.form-title {
+  color: black;
+  text-align: center;
+}
+
+form {
+  margin-top: 50%;
+  background-color: aliceblue;
+  padding: 20px;
+  border: black solid 3px;
+  border-radius: 10px;
+}
+
+.form-label {
+  margin-top: 20px;
+  height: 25px;
+  color: black;
+}
+
+.form-control {
+  width: 400px !important;
+}
+
+.btn {
+  padding-top: 10px;
+  margin-top: 30px;
+}
+
+.buttons-login {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.content {
+  color: white;
+}
+
+.label {
+  color: white;
+}
+
+
+.name {
+  color: azure;
+}
+
+.value {
+  color: azure;
+}
+
+.bio {
+  color: azure;
+}
+
+.birthyear {
+  color: azure;
+}
+
+.director-bio {
+  margin-bottom: 20px;
+}
+
+.director-name {
+  margin-bottom: 20px;
+}
+
+.director-view {
+  margin-top: 30px;
+}
+.name {
+  color: azure;
+}
+
+.value {
+  color: azure;
+}
+
+.bio {
+  color: azure;
+}
+
+.genre-bio {
+  margin-bottom: 20px;
+}
+
+.genre-name {
+  margin-bottom: 20px;
+}
+
+.genre-view {
+  margin-top: 30px;
+}
+.nav-link {
+  color: aliceblue;
+}
+
+.navbar-brand {
+  color: aliceblue;
+}
+
+body {
+  background: #202124 !important;
+}
+/*# sourceMappingURL=index.c1843862.css.map */
