@@ -33,7 +33,7 @@ export class ProfileView extends React.Component {
 
   getUser(token) {
     const username = localStorage.getItem('user');
-    axios.get(`https://flixir.herokuapp.com/users/${username}`, {
+    axios.get(`https://flixir.herokuapp.com/users/username/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => {
@@ -108,7 +108,7 @@ export class ProfileView extends React.Component {
     const answer = window.confirm("Are you sure you want to delete your account?");
     if (answer) {
       const token = localStorage.getItem("token");
-      const user = localStorage.getItem("user");
+      const username = localStorage.getItem("user");
       axios.delete(`https://flixir.herokuapp.com/users/${username}`, 
         { headers: { Authorization: `Bearer ${token}` }
     })
@@ -190,20 +190,19 @@ export class ProfileView extends React.Component {
           </div>
           <Row>
             <Col className="acc-btns mt-1">
-              <Button size="md" variant="outline-danger" type="submit" ml="4" onClick={() => this.deleteUser()} >Delete Account</Button>
+              <Button size="md" variant="outline-danger" type="submit" ml="4" onClick={() => this.onDeleteUser()} >Delete Account</Button>
             </Col>
             
          </Row>
          
-          <h3 className="favorite-Movies-title">Favorite Movies</h3>
+          <h3 className="favorite-Movies-title">Favorites</h3>
         
         <Row className="favoriteMovied-col"> 
           { favorites && favorites.map((movie) => (
-           
             <Col sm={6} md={4} lg={4} key={movie._id}>
               <div className="favoriteMoviediv" >
                 <MovieCard movie={movie} />
-                <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
+                <Button bg="danger" variant="outline-danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(movie, e)}>
                   Delete From Favorites
                 </Button>
                 </div>

@@ -22976,7 +22976,7 @@ class MainView extends _reactDefault.default.Component {
     getUser() {
         const username = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        _axiosDefault.default.get(`https://flixir.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://flixir.herokuapp.com/users/username/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -23077,6 +23077,14 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 path: "/movies/:movieId",
                                 render: ({ match , history  })=>{
+                                    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                            onLoggedIn: (user)=>this.onLoggedIn(user)
+                                        })
+                                    }));
+                                    if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                        className: "main-view"
+                                    }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                                         md: 8,
                                         children: [
@@ -23087,6 +23095,8 @@ class MainView extends _reactDefault.default.Component {
                                                 movie: movies.find((m)=>m._id === match.params.movieId
                                                 ),
                                                 onBackClick: ()=>history.goBack()
+                                                ,
+                                                getUser: this.getUser
                                             })
                                         ]
                                     }));
@@ -23124,7 +23134,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 149
+                                    lineNumber: 156
                                 },
                                 __self: this
                             }),
@@ -23155,7 +23165,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 164
+                                    lineNumber: 171
                                 },
                                 __self: this
                             }),
@@ -23194,7 +23204,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 179
+                                    lineNumber: 186
                                 },
                                 __self: this
                             })
@@ -40358,7 +40368,7 @@ class ProfileView extends _reactDefault.default.Component {
     // Current User profile data
     getUser(token) {
         const username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https://flixir.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://flixir.herokuapp.com/users/username/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -40425,7 +40435,7 @@ class ProfileView extends _reactDefault.default.Component {
         const answer = window.confirm("Are you sure you want to delete your account?");
         if (answer) {
             const token = localStorage.getItem("token");
-            const user = localStorage.getItem("user");
+            const username = localStorage.getItem("user");
             _axiosDefault.default.delete(`https://flixir.herokuapp.com/users/${username}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -40692,7 +40702,7 @@ class ProfileView extends _reactDefault.default.Component {
                             variant: "outline-danger",
                             type: "submit",
                             ml: "4",
-                            onClick: ()=>this.deleteUser()
+                            onClick: ()=>this.onDeleteUser()
                             ,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
@@ -40710,7 +40720,7 @@ class ProfileView extends _reactDefault.default.Component {
                         lineNumber: 198
                     },
                     __self: this,
-                    children: "Favorite Movies"
+                    children: "Favorites"
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     className: "favoriteMovied-col",
@@ -40725,14 +40735,14 @@ class ProfileView extends _reactDefault.default.Component {
                             lg: 4,
                             __source: {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 203
+                                lineNumber: 202
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                                 className: "favoriteMoviediv",
                                 __source: {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 204
+                                    lineNumber: 203
                                 },
                                 __self: this,
                                 children: [
@@ -40740,20 +40750,20 @@ class ProfileView extends _reactDefault.default.Component {
                                         movie: movie,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 205
+                                            lineNumber: 204
                                         },
                                         __self: this
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                         bg: "danger",
-                                        variant: "danger",
+                                        variant: "outline-danger",
                                         className: "unfav-button",
                                         value: movie._id,
-                                        onClick: (e)=>this.onRemoveFavorite(e, movie)
+                                        onClick: (e)=>this.onRemoveFavorite(movie, e)
                                         ,
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 206
+                                            lineNumber: 205
                                         },
                                         __self: this,
                                         children: "Delete From Favorites"

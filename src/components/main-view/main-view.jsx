@@ -87,7 +87,7 @@ export default class MainView extends React.Component {
       const username = localStorage.getItem("user");
       const token = localStorage.getItem("token");
       axios
-        .get(`https://flixir.herokuapp.com/users/${username}`, {
+        .get(`https://flixir.herokuapp.com/users/username/${username}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -138,10 +138,17 @@ export default class MainView extends React.Component {
           }} /> 
 
           <Route path="/movies/:movieId" render={({ match, history }) => {
+            if ( !user ) 
+          return (
+            <Col>
+              <LoginView onLoggedIn={ (user) => this.onLoggedIn(user) } />
+            </Col>
+          );
+          if (movies.length === 0) return <div className="main-view" />
             return <Col md={8}>
               <TopNav user={user}></TopNav>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} 
-              onBackClick={() => history.goBack()} />
+              onBackClick={() => history.goBack()} getUser={this.getUser}/>
             </Col>
           }} />
 
