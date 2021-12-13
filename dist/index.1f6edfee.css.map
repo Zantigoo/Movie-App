@@ -1,1 +1,0 @@
-{"mappings":"AAEA;EACI","sources":["src/index.scss"],"sourcesContent":["$bg-color: #202124;\r\n\r\nbody {\r\n    background: $bg-color !important;\r\n}\r\n"],"names":[],"version":3,"file":"index.1f6edfee.css.map","sourceRoot":"/__parcel_source_root/"}

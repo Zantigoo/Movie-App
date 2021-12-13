@@ -20,10 +20,9 @@ export class TopNav extends React.Component {
     };
 
     render() {
-        
         const { user } = this.props
         const movies = `/`;
-        const profile = `/users/${user}`;
+        const profile = `/user/id/${user}`;
     
         return (
 

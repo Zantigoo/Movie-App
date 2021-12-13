@@ -28,14 +28,6 @@ export class ProfileView extends React.Component {
     this.props.getUser()
   }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-    window.open('/', '_self');
-  }
 
   // Current User profile data
 
@@ -65,7 +57,6 @@ export class ProfileView extends React.Component {
 
     axios.put(`https://flixir.herokuapp.com/users/${username}`,
     {
-      Name: this.state.Name,
       Username: this.state.Username,
       Password: this.state.Password,
       Email: this.state.Email,
@@ -75,7 +66,6 @@ export class ProfileView extends React.Component {
     })
     .then((response) => {
       this.setState({
-        Name: response.data.Name,
         Username: response.data.Username,
         Password: response.data.Password,
         Email: response.data.Email,
@@ -161,7 +151,7 @@ export class ProfileView extends React.Component {
         <Row className="justify-content-md-center">
           <Col className="user-info">
           <div className="profileContent">
-            <h1>MY PROFILE</h1>
+            <h1>PROFILE</h1>
           </div>
             <h4>Username: {username}</h4>
             <h4>Email: {email}</h4>
@@ -173,11 +163,6 @@ export class ProfileView extends React.Component {
           <div>
             <h3>EDIT PROFILE</h3>
           </div>
-          <Form.Group>
-              Name
-              <Form.Control type='text' name="Name" placeholder="New Name" onChange={(e) => this.setName(e.target.value)} />
-            </Form.Group>
-
             <Form.Group>
               Username
               <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
