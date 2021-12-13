@@ -22978,7 +22978,7 @@ class TopNav extends _reactDefault.default.Component {
                             __self: this,
                             children: [
                                 /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Link, {
-                                    href: "",
+                                    href: "/",
                                     __source: {
                                         fileName: "src/components/nav-bar/nav-bar.jsx",
                                         lineNumber: 35
@@ -22987,20 +22987,11 @@ class TopNav extends _reactDefault.default.Component {
                                     children: "Movies"
                                 }),
                                 /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Link, {
-                                    href: "#link",
-                                    __source: {
-                                        fileName: "src/components/nav-bar/nav-bar.jsx",
-                                        lineNumber: 36
-                                    },
-                                    __self: this,
-                                    children: "Directors"
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_navDefault.default.Link, {
                                     id: "Account",
                                     href: profile,
                                     __source: {
                                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                                        lineNumber: 37
+                                        lineNumber: 36
                                     },
                                     __self: this,
                                     children: "My Account"
@@ -23012,7 +23003,7 @@ class TopNav extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                                        lineNumber: 38
+                                        lineNumber: 37
                                     },
                                     __self: this,
                                     children: "Logout"

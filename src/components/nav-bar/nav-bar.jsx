@@ -32,8 +32,7 @@ export class TopNav extends React.Component {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="">Movies</Nav.Link>
-        <Nav.Link href="#link">Directors</Nav.Link>
+        <Nav.Link href="/">Movies</Nav.Link>
         <Nav.Link id="Account" href={profile}>My Account</Nav.Link>
         <Nav.Link id="logout" onClick={() => { this.onLoggedOut() }}>Logout</Nav.Link>
       </Nav>
