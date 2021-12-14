@@ -85,16 +85,17 @@ export class ProfileView extends React.Component {
 
   // Delete A Favorite Movie From Users Favorite 
 
-  onRemoveFavorite() {
+  onRemoveFavorite = (e, movie) => {
     const username = localStorage.getItem('user');
+    console.log(username)
     const token = localStorage.getItem('token');
-
+    console.log(this.props)
     axios.delete(`https://flixir.herokuapp.com/users/${username}/movies/${movie._id}`, 
-    {headers: { Authorization: `Bearer ${token}` }
-    })
+    { headers: { Authorization: `Bearer ${token}` } }
+    )
       .then((response) => {
         console.log(response);
-        alert("Movie has been removed")
+        alert("Movie was removed");
         this.componentDidMount();
       })
       .catch(function (error) {
@@ -196,13 +197,14 @@ export class ProfileView extends React.Component {
          </Row>
          
           <h3 className="favorite-Movies-title">Favorites</h3>
-        
+    
         <Row className="favoriteMovied-col"> 
           { favorites && favorites.map((movie) => (
+           
             <Col sm={6} md={4} lg={4} key={movie._id}>
               <div className="favoriteMoviediv" >
                 <MovieCard movie={movie} />
-                <Button bg="danger" variant="outline-danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(movie, e)}>
+                <Button bg="danger" variant="danger" className="unfav-button" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>
                   Delete From Favorites
                 </Button>
                 </div>
