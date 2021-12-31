@@ -1,7 +1,8 @@
 {
   "name": "movie-app",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Flixr client",
+  "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +15,7 @@
   "dependencies": {
     "@parcel/reporter-dev-server": "^2.0.0",
     "axios": "^0.24.0",
+    "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
