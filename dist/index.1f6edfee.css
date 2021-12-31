@@ -1,9 +1,5 @@
-.nav-link {
-  color: aliceblue;
-}
-
-.navbar-brand {
-  color: aliceblue;
+body {
+  background: #202124 !important;
 }
 .app-container {
   display: grid;
@@ -52,19 +48,11 @@ form {
   color: white;
 }
 
-.username {
+h4 {
   color: aliceblue;
 }
 
-.email {
-  color: aliceblue;
-}
-
-Form {
-  color: aliceblue;
-}
-
-.card-title {
+h1 {
   color: aliceblue;
 }
 .name {
@@ -117,8 +105,12 @@ Form {
 .genre-view {
   margin-top: 30px;
 }
-
-body {
-  background: #202124 !important;
+.nav-link {
+  color: aliceblue;
 }
-/*# sourceMappingURL=index.2d2d21b0.css.map */
+
+.navbar-brand {
+  color: aliceblue;
+}
+
+/*# sourceMappingURL=index.1f6edfee.css.map */

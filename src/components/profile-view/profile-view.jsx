@@ -151,16 +151,16 @@ export class ProfileView extends React.Component {
       <Container className="UserView">
         <Row className="justify-content-md-center">
           <Col className="user-info">
-          <div className="profileContent">
+          <div className="profileContent text-light">
             <h1>PROFILE</h1>
           </div>
-            <h4>Username: {username}</h4>
-            <h4>Email: {email}</h4>
-            <h4>Birthday: {birthday}</h4>
+            <h4 className="text-light">Username: {username}</h4>
+            <h4 className="text-light">Email: {email}</h4>
+            <h4 className="text-light">Birthday: {birthday}</h4>
           </Col>
         </Row>
           <div className="profileInformation">        
-          <Form className="formDisplay" onSubmit={(e) => this.editUser(e)}>
+          <Form className="formDisplay " onSubmit={(e) => this.editUser(e)}>
           <div>
             <h3>EDIT PROFILE</h3>
           </div>

@@ -1,10 +1,14 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import moviesApp from './reducers/reducers';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
-//Component Import
 import MainView from './components/main-view/main-view';
 
+const store = createStore(moviesApp, devToolsEnhancer());
 
 //CSS Import
 import './index.scss';
@@ -12,9 +16,9 @@ import './index.scss';
 class FlixrApp extends React.Component {
     render() {
         return (
-          <Container>
-            <MainView />
-          </Container>
+          <Provider store={store}>
+              <MainView />
+          </Provider>
         );
       }
 };

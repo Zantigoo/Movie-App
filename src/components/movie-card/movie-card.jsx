@@ -14,24 +14,12 @@ export class MovieCard extends React.Component {
         return (
 
         <Card className="bg-dark text-white">
-            <Card.Img src={movie.Imageurl}/>
-            <Card.ImgOverlay>
-                <Card.Title className='display-4'>{movie.Title}</Card.Title>
-                <Link to={`/movies/${movie._id}`}>
-                <Button variant="link">Open</Button>
-                </Link>
-            </Card.ImgOverlay>    
+            <Link to={`/movies/${movie._id}`}>
+                <Card.Img src={movie.Imageurl} alt={movie.Title}/>
+                    <Card.ImgOverlay>
+                        <Card.Title className="text-center">{movie.Title}</Card.Title>        
+                    </Card.ImgOverlay>    
+            </Link>
         </Card>
         );
     }}
-
-//Validating entries
-
-MovieCard.propTypes = {
-    movie: PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        Imageurl: PropTypes.string.isRequired,
-    }).isRequired,
-
-};
