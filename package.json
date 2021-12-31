@@ -2,7 +2,6 @@
   "name": "movie-app",
   "version": "1.0.1",
   "description": "Flixr client",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +12,6 @@
   "author": "Mathew Brookes",
   "license": "ISC",
   "dependencies": {
-    "@parcel/reporter-dev-server": "^2.0.0",
     "axios": "^0.24.0",
     "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.7.2",
@@ -26,6 +24,6 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0"
+    "@parcel/transformer-sass": "^2.0.0-rc.0"
   }
 }
