@@ -3,7 +3,8 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import './profile-view.scss';
-
+import { setUser, updateUser } from "../../actions/actions";
+import { connect } from "react-redux";
 import { MovieCard } from '../movie-card/movie-card';
 
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
@@ -144,6 +145,7 @@ export class ProfileView extends React.Component {
 
 
   render() {
+    const { movies, onBackClick, user } = this.props;
     const { username, email, birthday, favorites  } = this.props
     console.log(this.props)
 
@@ -196,7 +198,7 @@ export class ProfileView extends React.Component {
             
          </Row>
          
-          <h3 className="favorite-Movies-title">Favorites</h3>
+          <h3 className="favorite-Movies-title text-light my-5">Favorites</h3>
     
         <Row className="favoriteMovied-col"> 
           { favorites && favorites.map((movie) => (
@@ -219,11 +221,12 @@ export class ProfileView extends React.Component {
     )
    }  
 }
-ProfileView.propTypes = {
-  profile: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired
-  })
+
+let mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    movies: state.movies,
+  };
 };
+
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
