@@ -1,0 +1,39 @@
+.app-container {  
+    display: grid;
+    justify-content: center;
+    padding-bottom: 500px;
+}
+
+.form-title {
+    color: black;
+    text-align: center;
+}
+
+form {
+    margin-top: 50%;
+    background-color: aliceblue;
+    padding: 20px;
+    border: black solid 3px;
+    border-radius: 10px;
+}
+
+.form-label {
+    
+    margin-top: 20px;
+    height: 25px;
+    color: black;
+}
+
+.form-control {
+    width: 400px !important;
+}
+
+.btn {
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+.buttons-login {
+    display: flex;
+    justify-content: space-evenly;
+}
